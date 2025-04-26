@@ -4,7 +4,6 @@ FROM lopsided/archlinux:latest
 RUN pacman -Syu --noconfirm sudo git && \
     useradd -m builder && \
     echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    # Configure GitHub Actions compatibility
     mkdir -p /__w /github/home /github/workflow && \
     chown -R builder:builder /__w /github && \
     chmod -R 777 /__w /github
