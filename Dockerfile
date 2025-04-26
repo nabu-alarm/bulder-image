@@ -2,7 +2,7 @@ FROM lopsided/archlinux:latest
 
 # Install dependencies and setup builder user
 RUN pacman -Syu --noconfirm sudo git && \
-    useradd -m builder && \
+    useradd -m builder -u 1001 && \
     echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     mkdir -p /__w /github/home /github/workflow && \
     chown -R builder:builder /__w /github && \
